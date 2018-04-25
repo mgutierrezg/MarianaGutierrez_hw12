@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-
+//Condicion inicial 
 void u_in(double* u,double x_min,double delta_x, int n){
   for (int i=0; i<n; i++){
     double x = x_min + i*delta_x;
@@ -13,7 +13,7 @@ void u_in(double* u,double x_min,double delta_x, int n){
     }
   }
 }
-
+// Hace la adveccion
 void derivada(double *u_nuevo, double *u_viejo, int n, double delta_x, double delta_t, double c){
 
   for(int i=1;i<n-1;i++)
@@ -36,6 +36,7 @@ int main(){
   double *u1;
   double *u2;
   double *u3;
+  //Un vector para modificar y uno que nunca cambia que es el ini
   u_nuevo= new double[nx];
   u_viejo= new double[nx];
   u_ini = new double[nx];
@@ -51,7 +52,8 @@ int main(){
       u_viejo[i]=u_nuevo[i];
     }
   }
-  double x=0;		
+  double x=0;
+  //imprime
   for(int i=0;i<nx;i++)
     {
       x=x_min + i*delta_x;
